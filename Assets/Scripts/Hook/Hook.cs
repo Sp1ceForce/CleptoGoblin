@@ -10,9 +10,10 @@ public class Hook : MonoBehaviour
     [SerializeField] private Camera mainCam;
     [SerializeField] private HookRender hookRender;
     private int layerMask;
-
     private SpringJoint hookJoint;
-
+    private bool stagePrepare = false;
+    private bool stageHook = false;
+    private int i = 1;
     private void Start()
     {
         int wallIndexLayer = LayerMask.NameToLayer("Wall");
@@ -28,27 +29,40 @@ public class Hook : MonoBehaviour
 
     private void HookLogic()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && i == 1)
         {
-
+            i++;
+            gameObject.SendMessage("Freze", true);
+            //включить анимацию
+        }
+        else if (Input.GetMouseButtonDown(0) && i == 2)
+        {
+            i = 1;
             RaycastHit hit;
             Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit))
             {
                 RaycastHit hitNotWall;
-                var heading = hit.transform.position - transform.position;
 
+                var heading = hit.point - transform.position;
                 var distance = heading.magnitude;
                 var direction = heading / distance;
                 if (Physics.Raycast(transform.position, direction, out hitNotWall, 200, layerMask)) return;
 
 
-                Transform objectHit = hit.transform;
-                if (hit.collider != null)
+                var tmpVector = hit.point;
+                if (hit.distance > hookDistance)
                 {
-                    Vector3 grabPoint = objectHit.position;
+                    tmpVector = Vector3.forward * hookDistance;
+                }
+                transform.TransformDirection(tmpVector);
+
+                if (hit.point != null)
+                {
+                    Vector3 grabPoint = tmpVector;
                     hookRender.DrawRope(grabPoint);
+
                     hookJoint = this.gameObject.AddComponent<SpringJoint>();
                     hookJoint.autoConfigureConnectedAnchor = false;
                     hookJoint.connectedAnchor = grabPoint;
@@ -56,15 +70,23 @@ public class Hook : MonoBehaviour
                     float grapDistance = Vector3.Distance(transform.position, grabPoint);
                     hookJoint.maxDistance = grapDistance;
                     hookJoint.minDistance = grapDistance;
-                    hookJoint.damper = 10;
-                    hookJoint.spring = 5;
+                    hookJoint.damper = hookJointDamper;
+                    hookJoint.spring = hookJointSpring;
                 }
             }
+            gameObject.SendMessage("Freze", false);
+
         }
-        if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonDown(1) && i == 2)
         {
-            Destroy(hookJoint);
-            hookRender.ReturnRope();
+            i = 1;
+            gameObject.SendMessage("Freze", false);
+
         }
+    }
+    public void ReturnHook()
+    {
+        Destroy(hookJoint);
+        hookRender.ReturnRope();
     }
 }
