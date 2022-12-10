@@ -36,9 +36,11 @@ public class PlayerController : MonoBehaviour
         moveXZ = Vector2.ClampMagnitude(moveXZ, speed);
         rb.velocity = new Vector3(moveXZ.x, rb.velocity.y, moveXZ.y);*/
         rb.velocity = move;
-        if(!(isAiming | (deltaX == 0 && deltaZ == 0)))
+        if (!(isAiming | (deltaX == 0 && deltaZ == 0)))
         {
-        transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(new Vector3(deltaX,0,deltaZ)),0.1f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(deltaX, 0, deltaZ)), 0.1f);
         }
     }
+
+
 }

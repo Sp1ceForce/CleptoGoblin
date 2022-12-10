@@ -10,9 +10,10 @@ public class Hook : MonoBehaviour
     [SerializeField] private Camera mainCam;
     [SerializeField] private HookRender hookRender;
     private int layerMask;
-
     private SpringJoint hookJoint;
-
+    private bool stagePrepare = false;
+    private bool stageHook = false;
+    private int i = 1;
     private void Start()
     {
         int wallIndexLayer = LayerMask.NameToLayer("Wall");
@@ -28,17 +29,23 @@ public class Hook : MonoBehaviour
 
     private void HookLogic()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && i == 1)
         {
-
+            i++;
+            //остановить игрока
+            //включить анимацию
+        }
+        else if (Input.GetMouseButtonDown(0) && i == 2)
+        {
+            i = 1;
             RaycastHit hit;
             Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit))
             {
                 RaycastHit hitNotWall;
-                var heading = hit.transform.position - transform.position;
 
+                var heading = hit.transform.position - transform.position;
                 var distance = heading.magnitude;
                 var direction = heading / distance;
                 if (Physics.Raycast(transform.position, direction, out hitNotWall, 200, layerMask)) return;
@@ -61,10 +68,14 @@ public class Hook : MonoBehaviour
                 }
             }
         }
-        if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonDown(1) && i == 2)
         {
-            Destroy(hookJoint);
-            hookRender.ReturnRope();
+            i = 1;
         }
+    }
+    public void ReturnHook()
+    {
+        Destroy(hookJoint);
+        hookRender.ReturnRope();
     }
 }
