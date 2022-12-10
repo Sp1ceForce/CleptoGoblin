@@ -32,7 +32,7 @@ public class Hook : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && i == 1)
         {
             i++;
-            //остановить игрока
+            gameObject.SendMessage("Freze", true);
             //включить анимацию
         }
         else if (Input.GetMouseButtonDown(0) && i == 2)
@@ -51,11 +51,14 @@ public class Hook : MonoBehaviour
                 if (Physics.Raycast(transform.position, direction, out hitNotWall, 200, layerMask)) return;
 
 
-                Transform objectHit = hit.transform;
-                if (hit.collider != null)
+                var tmpVector = hit.point;
+                transform.TransformDirection(tmpVector);
+
+                if (hit.point != null)
                 {
-                    Vector3 grabPoint = objectHit.position;
+                    Vector3 grabPoint = tmpVector;
                     hookRender.DrawRope(grabPoint);
+
                     hookJoint = this.gameObject.AddComponent<SpringJoint>();
                     hookJoint.autoConfigureConnectedAnchor = false;
                     hookJoint.connectedAnchor = grabPoint;
@@ -63,14 +66,18 @@ public class Hook : MonoBehaviour
                     float grapDistance = Vector3.Distance(transform.position, grabPoint);
                     hookJoint.maxDistance = grapDistance;
                     hookJoint.minDistance = grapDistance;
-                    hookJoint.damper = 10;
-                    hookJoint.spring = 5;
+                    hookJoint.damper = hookJointDamper;
+                    hookJoint.spring = hookJointSpring;
                 }
             }
+            gameObject.SendMessage("Freze", false);
+
         }
         else if (Input.GetMouseButtonDown(1) && i == 2)
         {
             i = 1;
+            gameObject.SendMessage("Freze", false);
+
         }
     }
     public void ReturnHook()

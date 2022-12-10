@@ -33,7 +33,9 @@ public class HookRender : MonoBehaviour
         {
             currentGrabPosition = Vector3.Lerp(currentGrabPosition,
             targetGrabPosition, Time.deltaTime * drawSpeed);
-
+            if (Vector3.Distance(this.transform.position, currentGrabPosition) + 0.1
+            >= Vector3.Distance(this.transform.position, targetGrabPosition))
+                ReturnRope();
             lineRenderer.SetPosition(0, shootPoint.transform.position);
             lineRenderer.SetPosition(1, currentGrabPosition);
             hook.transform.position = currentGrabPosition;
