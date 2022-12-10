@@ -297,7 +297,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   speedRotate: 1
+  isAiming: 0
+  isCrouched: 0
   isRuning: 0
+  isThrow: 0
   isIdle: 0
 --- !u!120 &2260270765534076452
 LineRenderer:
