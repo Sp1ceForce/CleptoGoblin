@@ -21,10 +21,16 @@ public class GuardFOV : MonoBehaviour
     GameObject playerRef;
 
     bool seenPlayer;
+
+    Light visionCone;
     void Start()
     {
         StartCoroutine(VisionRoutine());
         playerRef = GameObject.FindGameObjectWithTag("Player");
+        visionCone = GetComponentInChildren<Light>();
+        visionCone.spotAngle = VisionAngle;
+        visionCone.innerSpotAngle = VisionAngle;
+
     }
 
 

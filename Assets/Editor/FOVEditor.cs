@@ -13,6 +13,9 @@ public class FOVEditor : Editor
         Vector3 viewAngle1 = DirFromAngle(guardFOV.transform.eulerAngles.y, -guardFOV.VisionAngle / 2);
         Vector3 viewAngle2 = DirFromAngle(guardFOV.transform.eulerAngles.y, guardFOV.VisionAngle / 2);
         Handles.color = Color.yellow;
+        Handles.DrawLine(guardFOV.transform.position, guardFOV.transform.position+ viewAngle1 * guardFOV.DetectionRadius);
+        Handles.DrawLine(guardFOV.transform.position, guardFOV.transform.position + viewAngle2 * guardFOV.DetectionRadius);
+
     }
     private Vector3 DirFromAngle(float eulerY,float angleInDegrees)
     {

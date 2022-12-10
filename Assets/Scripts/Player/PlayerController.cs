@@ -8,30 +8,36 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rbModel;
     private Vector2 moveXZ;
     [SerializeField] private float speed = 1;
+
+    bool isAiming;
+
     void Start()
     {
+        isAiming = false;
         rb = GetComponent<Rigidbody>();
         rbModel = transform.GetChild(0).GetComponent<Rigidbody>();
     }
-    void LateUpdate()
+    void FixedUpdate()
     {
         MovementLogic();
     }
 
     private void MovementLogic()
     {
-        float deltaX = Input.GetAxis("Horizontal") * speed;
-        float deltaZ = Input.GetAxis("Vertical") * speed;
+        float deltaX = Input.GetAxisRaw("Horizontal");
+        float deltaZ = Input.GetAxisRaw("Vertical");
 
-        Vector3 move = new Vector3(deltaX, 0, deltaZ);
-        move = transform.TransformDirection(move);
+        Vector3 move = new Vector3(deltaX * speed, 0, deltaZ * speed).normalized;
+        //move = transform.TransformDirection(move);
         rb.AddForce(move, ForceMode.Impulse);
 
         moveXZ.x = rb.velocity.x;
         moveXZ.y = rb.velocity.z;
         moveXZ = Vector2.ClampMagnitude(moveXZ, speed);
         rb.velocity = new Vector3(moveXZ.x, rb.velocity.y, moveXZ.y);
-
-        rbModel.MoveRotation(Quaternion.LookRotation(rb.velocity));
+        if(!(isAiming | (deltaX == 0 && deltaZ == 0)))
+        {
+        transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(new Vector3(deltaX,0,deltaZ)),0.1f);
+        }
     }
 }

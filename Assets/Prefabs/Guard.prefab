@@ -264,7 +264,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8091265093841379129}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4926611b82bb8294b902a992987c5ef8, type: 3}
   m_Name: 
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DetectionRadius: 4.1
-  VisionAngle: 0
+  VisionAngle: 45
   TargetMask:
     serializedVersion: 2
     m_Bits: 64
