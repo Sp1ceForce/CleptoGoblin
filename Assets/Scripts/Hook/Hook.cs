@@ -9,10 +9,18 @@ public class Hook : MonoBehaviour
     [SerializeField] private float hookJointSpring = 5;
     [SerializeField] private Camera mainCam;
     [SerializeField] private HookRender hookRender;
-
+    private int layerMask;
 
     private SpringJoint hookJoint;
 
+    private void Start()
+    {
+        int wallIndexLayer = LayerMask.NameToLayer("Wall");
+        int itemIndexLayer = LayerMask.NameToLayer("item");
+
+        layerMask = (1 << wallIndexLayer);
+        // layerMask = ~layerMask;
+    }
     void Update()
     {
         HookLogic();
@@ -22,13 +30,21 @@ public class Hook : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+
             RaycastHit hit;
             Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out hit))
             {
+                RaycastHit hitNotWall;
+                var heading = hit.transform.position - transform.position;
+
+                var distance = heading.magnitude;
+                var direction = heading / distance;
+                if (Physics.Raycast(transform.position, direction, out hitNotWall, 200, layerMask)) return;
+
+
                 Transform objectHit = hit.transform;
-                Debug.Log(objectHit.position);
                 if (hit.collider != null)
                 {
                     Vector3 grabPoint = objectHit.position;
