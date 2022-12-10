@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2479018608809255296}
   m_Layer: 0
   m_Name: HookCube
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 2260270766371075732}
   m_Layer: 0
   m_Name: grabPoint
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 2260270765534076451}
   m_Layer: 0
   m_Name: Player 1
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -496,11 +496,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LowPolyCharacterRigged
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: ecae545f2a4d0c04bad462c99b55f716,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecae545f2a4d0c04bad462c99b55f716, type: 3}
 --- !u!4 &2732989219197518562 stripped
@@ -527,7 +522,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 94
   m_CollisionDetection: 0
