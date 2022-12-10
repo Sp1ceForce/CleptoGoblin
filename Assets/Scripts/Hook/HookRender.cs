@@ -35,7 +35,9 @@ public class HookRender : MonoBehaviour
             targetGrabPosition, Time.deltaTime * drawSpeed);
             if (Vector3.Distance(this.transform.position, currentGrabPosition) + 0.1
             >= Vector3.Distance(this.transform.position, targetGrabPosition))
-                ReturnRope();
+            {
+                gameObject.SendMessage("ReturnHook");
+            }
             lineRenderer.SetPosition(0, shootPoint.transform.position);
             lineRenderer.SetPosition(1, currentGrabPosition);
             hook.transform.position = currentGrabPosition;

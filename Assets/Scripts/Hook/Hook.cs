@@ -52,6 +52,10 @@ public class Hook : MonoBehaviour
 
 
                 var tmpVector = hit.point;
+                if (hit.distance > hookDistance)
+                {
+                    tmpVector = Vector3.forward * hookDistance;
+                }
                 transform.TransformDirection(tmpVector);
 
                 if (hit.point != null)
