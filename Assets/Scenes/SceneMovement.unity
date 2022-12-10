@@ -1404,29 +1404,9 @@ PrefabInstance:
       propertyPath: mainCam
       value: 
       objectReference: {fileID: 1005390648}
-    - target: {fileID: 2260270765808613085, guid: b3fe3ca9ff697c547863c130f4e380ef,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2260270765808613085, guid: b3fe3ca9ff697c547863c130f4e380ef,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2260270766371075733, guid: b3fe3ca9ff697c547863c130f4e380ef,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 2479018608618604904, guid: b3fe3ca9ff697c547863c130f4e380ef,
         type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2479018608618604904, guid: b3fe3ca9ff697c547863c130f4e380ef,
-        type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2479018608618604915, guid: b3fe3ca9ff697c547863c130f4e380ef,
@@ -1484,11 +1464,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3361470497719965784, guid: b3fe3ca9ff697c547863c130f4e380ef,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3fe3ca9ff697c547863c130f4e380ef, type: 3}
 --- !u!1001 &3743974024569984415
@@ -1506,17 +1481,17 @@ PrefabInstance:
     - target: {fileID: 3743974023470672366, guid: 610c279eb9189b741bd376b2e8d0fb8f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.638845
+      value: -12.950861
       objectReference: {fileID: 0}
     - target: {fileID: 3743974023470672366, guid: 610c279eb9189b741bd376b2e8d0fb8f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.546137
+      value: 9.98218
       objectReference: {fileID: 0}
     - target: {fileID: 3743974023470672366, guid: 610c279eb9189b741bd376b2e8d0fb8f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.287756
+      value: -20.661308
       objectReference: {fileID: 0}
     - target: {fileID: 3743974023470672366, guid: 610c279eb9189b741bd376b2e8d0fb8f,
         type: 3}

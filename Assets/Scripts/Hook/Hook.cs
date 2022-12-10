@@ -45,17 +45,17 @@ public class Hook : MonoBehaviour
             {
                 RaycastHit hitNotWall;
 
-                var heading = hit.transform.position - transform.position;
+                var heading = hit.point - transform.position;
                 var distance = heading.magnitude;
                 var direction = heading / distance;
                 if (Physics.Raycast(transform.position, direction, out hitNotWall, 200, layerMask)) return;
 
 
                 var tmpVector = hit.point;
-                if (hit.distance > hookDistance)
-                {
-                    tmpVector = Vector3.forward * hookDistance;
-                }
+                // if (hit.distance > hookDistance)
+                // {
+                //     tmpVector = Vector3.forward * hookDistance;
+                // }
                 transform.TransformDirection(tmpVector);
 
                 if (hit.point != null)

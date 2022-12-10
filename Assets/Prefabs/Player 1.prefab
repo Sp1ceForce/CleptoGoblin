@@ -16,11 +16,11 @@ GameObject:
   - component: {fileID: 2479018608809255296}
   m_Layer: 0
   m_Name: HookCube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2260270765808613084
 Transform:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 2260270766371075732}
   m_Layer: 0
   m_Name: grabPoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 2260270765534076451}
   m_Layer: 0
   m_Name: Player 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,7 +191,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2479018608618604904}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.6050444, y: 1.35, z: -7.0244575}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -295,6 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  speedRotate: 1
 --- !u!120 &2260270765534076452
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -494,6 +495,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LowPolyCharacterRigged
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ecae545f2a4d0c04bad462c99b55f716,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecae545f2a4d0c04bad462c99b55f716, type: 3}
