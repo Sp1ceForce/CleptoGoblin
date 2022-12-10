@@ -6,9 +6,9 @@ public class GuardFOV : MonoBehaviour
     public System.Action<GameObject> OnPlayerDetected;
     
     
-    [SerializeField] float detectionRadius;
+    public float DetectionRadius;
     [Range(0,360)]
-    [SerializeField] float visionAngle;
+    public float VisionAngle;
 
     //Masks for player and obstacles
     public LayerMask TargetMask;
@@ -30,13 +30,13 @@ public class GuardFOV : MonoBehaviour
 
     void VisionCheck()
     {        
-        Collider[] colliders = Physics.OverlapSphere(transform.position, detectionRadius, TargetMask);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, DetectionRadius, TargetMask);
         if (colliders.Length != 0)
         {
             Transform target = colliders[0].transform;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
 
-            if(Vector3.Angle(transform.forward,dirToTarget) < visionAngle / 2)
+            if(Vector3.Angle(transform.forward,dirToTarget) < VisionAngle / 2)
             {
                 float distance = Vector3.Distance(transform.position,target.position);
                 if (!Physics.Raycast(transform.position, dirToTarget, distance, ObstacleMask))

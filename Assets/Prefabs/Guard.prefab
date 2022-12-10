@@ -109,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8091265093189283532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.901, z: 0}
+  m_LocalPosition: {x: 0, y: -0.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -134,7 +134,7 @@ Light:
   m_InnerSpotAngle: 45
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -269,11 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4926611b82bb8294b902a992987c5ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  waypoints: []
 --- !u!114 &8091265093841379134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,8 +282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b45f1022e76204ebffa64306df249e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 5
-  visionAngle: 45
+  DetectionRadius: 4.1
+  VisionAngle: 0
   TargetMask:
     serializedVersion: 2
     m_Bits: 64
