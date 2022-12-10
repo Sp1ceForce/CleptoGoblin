@@ -14,6 +14,7 @@ public class Hook : MonoBehaviour
     private bool stagePrepare = false;
     private bool stageHook = false;
     private int i = 1;
+    private PlayerController pl;
     private void Start()
     {
         int wallIndexLayer = LayerMask.NameToLayer("Wall");
@@ -21,6 +22,8 @@ public class Hook : MonoBehaviour
 
         layerMask = (1 << wallIndexLayer);
         // layerMask = ~layerMask;
+
+        pl = GetComponent<PlayerController>();
     }
     void Update()
     {
@@ -29,14 +32,19 @@ public class Hook : MonoBehaviour
 
     private void HookLogic()
     {
+        // if (i == 1) pl.isThrow = false;  
         if (Input.GetMouseButtonDown(0) && i == 1)
         {
+            pl.isAiming = true;
             i++;
             gameObject.SendMessage("Freze", true);
             //включить анимацию
         }
         else if (Input.GetMouseButtonDown(0) && i == 2)
         {
+            pl.isAiming = false;
+
+            pl.isThrow = true;
             i = 1;
             RaycastHit hit;
             Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
@@ -75,17 +83,19 @@ public class Hook : MonoBehaviour
                 }
             }
             gameObject.SendMessage("Freze", false);
-
         }
         else if (Input.GetMouseButtonDown(1) && i == 2)
         {
             i = 1;
             gameObject.SendMessage("Freze", false);
+            pl.isThrow = false;
 
         }
     }
     public void ReturnHook()
     {
+        pl.isThrow = false;
+
         Destroy(hookJoint);
         hookRender.ReturnRope();
     }

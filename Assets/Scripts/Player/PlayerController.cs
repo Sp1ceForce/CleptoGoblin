@@ -11,7 +11,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speedRotate = 1;
 
     private Camera mainCam;
-    bool isAiming;
+    public bool isAiming;
+    public bool isCrouched;
+    public bool isRuning;
+    public bool isThrow;
+    public bool isIdle;
+
 
     void Start()
     {
@@ -23,6 +28,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         MovementLogic();
+        AnimatLogic();
     }
 
     private void MovementLogic()
@@ -46,6 +52,8 @@ public class PlayerController : MonoBehaviour
 
         if (isAiming)
         {
+            isRuning = false;
+
             RaycastHit hit;
             Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
             Physics.Raycast(ray, out hit);
@@ -56,7 +64,6 @@ public class PlayerController : MonoBehaviour
 
             transform.rotation = Quaternion.Slerp(transform.rotation,
             Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z)), 0.1f);
-
         }
     }
 
@@ -72,5 +79,19 @@ public class PlayerController : MonoBehaviour
             rb.constraints = ~RigidbodyConstraints.FreezePosition;
             isAiming = false;
         }
+    }
+
+    public void AnimatLogic()
+    {
+        if (rb.velocity != Vector3.zero)
+        {
+            isRuning = true;
+        }
+        else if (!isAiming)
+        {
+            isIdle = true;
+            isRuning = false;
+        }
+
     }
 }
