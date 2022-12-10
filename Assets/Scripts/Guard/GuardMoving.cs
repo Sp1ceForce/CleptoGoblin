@@ -12,7 +12,8 @@ public class GuardMoving : MonoBehaviour
 
     GameObject playerRef;
     bool isLookingForPlayer = false;
-    // Start is called before the first frame update
+
+    [SerializeField] float waitingTime = 2f;
     void Start()
     {
         navAgent = GetComponent<NavMeshAgent>();
@@ -22,6 +23,7 @@ public class GuardMoving : MonoBehaviour
     void OnPlayerDetected(GameObject playerObject)
     {
         isLookingForPlayer=true;
+        navAgent.isStopped = false;
         playerRef = playerObject;
     }
 
@@ -32,19 +34,30 @@ public class GuardMoving : MonoBehaviour
         {
             navAgent.SetDestination(playerRef.transform.position);
         }
-        else if (!navAgent.pathPending)
+        else if (!navAgent.pathPending && !navAgent.isStopped)
         {
             if (waypoints.Count == 0) return;
             if (navAgent.remainingDistance <= navAgent.stoppingDistance)
             {
                 if (!navAgent.hasPath || navAgent.velocity.sqrMagnitude == 0f)
                 {
-                    if (currentIndex + 1 >= waypoints.Count) currentIndex = 0;
-                    else currentIndex++;
-                    navAgent.SetDestination(waypoints[currentIndex].transform.position);
-                    
+                    navAgent.isStopped = true;
+                    StartCoroutine(WaitRoutine());
                 }
             }
         }
+    }
+    IEnumerator WaitRoutine()
+    {
+        yield return new WaitForSeconds(waitingTime);
+        SetNextDestination();
+    }
+
+    private void SetNextDestination()
+    {
+        if (currentIndex + 1 >= waypoints.Count) currentIndex = 0;
+        else currentIndex++;
+        navAgent.isStopped = false;
+        navAgent.SetDestination(waypoints[currentIndex].transform.position);
     }
 }
