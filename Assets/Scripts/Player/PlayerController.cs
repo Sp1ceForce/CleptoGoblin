@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
         moveXZ = Vector2.ClampMagnitude(moveXZ, speed);
         rb.velocity = new Vector3(moveXZ.x, rb.velocity.y, moveXZ.y);
 
-        rbModel.MoveRotation(Quaternion.LookRotation(rb.velocity));
+        if (rb.velocity != Vector3.zero)
+            rbModel.MoveRotation(Quaternion.LookRotation(rb.velocity));
     }
 }
