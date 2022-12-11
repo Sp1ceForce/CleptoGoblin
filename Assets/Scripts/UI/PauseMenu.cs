@@ -10,8 +10,15 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
+
     void Update()
     {
+        
+        if(Input.GetKeyUp(KeyCode.Backspace))  // if game is over --- CHANGE!
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused)
