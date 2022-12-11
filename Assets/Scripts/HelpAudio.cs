@@ -24,7 +24,7 @@ public class HelpAudio : MonoBehaviour
 
         if (goblStat == true)
         {
-            goblin.PlayDelayed(0.4f);
+            goblin.PlayDelayed(0.1f);
             guard.Stop();
             goblStat = false;
         }
@@ -33,7 +33,7 @@ public class HelpAudio : MonoBehaviour
     {
         if (goblStat == false)
         {
-            guard.PlayDelayed(0.4f);
+            guard.PlayDelayed(0.1f);
             goblin.Stop();
             goblStat = true;
         }

@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class GuardMoving : MonoBehaviour
 {
+    public System.Action OnPlayerLost;
     [SerializeField] List<GameObject> waypoints;
     [SerializeField] AudioSource Alram;
     int currentIndex = 0;
@@ -32,7 +33,7 @@ public class GuardMoving : MonoBehaviour
         isLookingForPlayer = true;
         navAgent.isStopped = false;
         playerRef = playerObject;
-        navAgent.speed = navAgent.speed* moveSpeedMultiplier;
+        navAgent.speed = navAgent.speed * moveSpeedMultiplier;
     }
 
     // Update is called once per frame
@@ -62,10 +63,11 @@ public class GuardMoving : MonoBehaviour
     }
     void OnPlayerHide()
     {
+        Camera.main.SendMessage("Goblin");
         OnPlayerLost?.Invoke();
         isLookingForPlayer = false;
         navAgent.SetDestination(waypoints[currentIndex].transform.position);
-        navAgent.speed = navAgent.speed/moveSpeedMultiplier;
+        navAgent.speed = navAgent.speed / moveSpeedMultiplier;
     }
     IEnumerator WaitRoutine()
     {

@@ -22,7 +22,7 @@ public class GuardAnimationController : MonoBehaviour
     void OnPlayerDetected(GameObject player)
     {
         isRunning = true;
-        animator.SetBool("isRunning",isRunning);
+        animator.SetBool("isRunning", isRunning);
     }
     void OnPlayerLost()
     {
@@ -32,6 +32,6 @@ public class GuardAnimationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetBool("isMoving",!agent.isStopped);
+        animator.SetBool("isMoving", !agent.isStopped);
     }
 }

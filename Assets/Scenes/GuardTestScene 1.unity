@@ -453,6 +453,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2257198990947721841, guid: c3d92ffdf45dc9c468fd7ab74740be3f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 166850505987635192, guid: c3d92ffdf45dc9c468fd7ab74740be3f,
         type: 3}
       propertyPath: m_Mesh
@@ -461,7 +466,7 @@ PrefabInstance:
     - target: {fileID: 166850505987635192, guid: c3d92ffdf45dc9c468fd7ab74740be3f,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 64
+      value: 67
       objectReference: {fileID: 0}
     - target: {fileID: 166850505987635192, guid: c3d92ffdf45dc9c468fd7ab74740be3f,
         type: 3}
@@ -6942,24 +6947,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23700260d1989424d81c5ab56c5805b5, type: 3}
---- !u!1 &1483539779 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7473149332106905864, guid: c6b7acef7aff1e4448874955c55f56e6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8365537283791465482}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1483539786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483539779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf73ca1be172f8e42ba19fb1576aa416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1497598350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 23700260d1989424d81c5ab56c5805b5,
@@ -9017,7 +9004,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-717962
+  m_Name: pb_Mesh-370310
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9647,16 +9634,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chest
-      objectReference: {fileID: 0}
-    - target: {fileID: 8978117579007609546, guid: c6b7acef7aff1e4448874955c55f56e6,
-        type: 3}
-      propertyPath: openLidRotation
-      value: -110
-      objectReference: {fileID: 0}
-    - target: {fileID: 8978117579007609546, guid: c6b7acef7aff1e4448874955c55f56e6,
-        type: 3}
-      propertyPath: closedLidRotation
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6b7acef7aff1e4448874955c55f56e6, type: 3}
