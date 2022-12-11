@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 713530654641991490}
   - component: {fileID: 713530654641991503}
   - component: {fileID: 713530654641991491}
-  - component: {fileID: 2581179467319182375}
   - component: {fileID: 2095629522419778785}
   - component: {fileID: 7731147795748923511}
   - component: {fileID: 7731147793944377158}
@@ -69,18 +68,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2581179467319182375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 713530654641991502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e31eb8942f4d5944eb853a20c47721f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2095629522419778785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsInside: 50
+  Help: {fileID: 0}
 --- !u!114 &7731147793944377158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,7 +509,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: E
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0baf008b04c20a04d9384a4f30d2602f, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -585,6 +573,6 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}

@@ -232,7 +232,7 @@ PrefabInstance:
     - target: {fileID: 361744893132439912, guid: 4e5a10741deba054d9ade1d4bb1b594b,
         type: 3}
       propertyPath: m_Name
-      value: Chest
+      value: ChestPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 361744893132439912, guid: 4e5a10741deba054d9ade1d4bb1b594b,
         type: 3}
@@ -268,6 +268,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: -0.71503973
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844261393713594388, guid: 4e5a10741deba054d9ade1d4bb1b594b,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0baf008b04c20a04d9384a4f30d2602f,
+        type: 2}
+    - target: {fileID: 1844261393713594388, guid: 4e5a10741deba054d9ade1d4bb1b594b,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -1056249133353421619, guid: 0baf008b04c20a04d9384a4f30d2602f,
+        type: 2}
+    - target: {fileID: 1844261393713594388, guid: 4e5a10741deba054d9ade1d4bb1b594b,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2192752142809541002, guid: 4e5a10741deba054d9ade1d4bb1b594b,
         type: 3}
@@ -365,47 +382,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7111422033385654368}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-7056860544089003788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7473149332106905864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf73ca1be172f8e42ba19fb1576aa416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2193422898703840188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7473149332106905864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf73ca1be172f8e42ba19fb1576aa416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8978117579007609546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7473149332106905864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b92c00c4f140120408371f554d96f3c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goldInside: 550
-  lidTransform: {fileID: 9181211750667606004}
-  closedLidRotation: 0
-  openLidRotation: -110
-  openChest: {fileID: 1483539794}
 --- !u!82 &1483539794
 AudioSource:
   m_ObjectHideFlags: 0
@@ -503,6 +479,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-7056860544089003788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7473149332106905864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf73ca1be172f8e42ba19fb1576aa416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1483539786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,3 +503,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf73ca1be172f8e42ba19fb1576aa416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2193422898703840188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7473149332106905864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf73ca1be172f8e42ba19fb1576aa416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8978117579007609546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7473149332106905864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b92c00c4f140120408371f554d96f3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldInside: 550
+  lidTransform: {fileID: 9181211750667606004}
+  closedLidRotation: 0
+  openLidRotation: -110
+  openChest: {fileID: 1483539794}
