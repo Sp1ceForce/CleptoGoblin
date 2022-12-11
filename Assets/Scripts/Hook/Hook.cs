@@ -19,7 +19,7 @@ public class Hook : MonoBehaviour
     {
         int wallIndexLayer = LayerMask.NameToLayer("Wall");
         int itemIndexLayer = LayerMask.NameToLayer("item");
-
+        mainCam = Camera.main;
         layerMask = (1 << wallIndexLayer);
         // layerMask = ~layerMask;
 
