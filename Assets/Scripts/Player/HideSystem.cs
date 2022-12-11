@@ -24,21 +24,24 @@ public class HideSystem : MonoBehaviour
     public void Hide()
     {
         playerRef.SetActive(false);
+        StartCoroutine(ChestCoroutine());
         IsHidden = true;
     }
     public void StopHiding()
     {
-        if (canEscape)
-        {
-
-        }
         IsHidden = false;
         playerRef.SetActive(true);
+    }
+    IEnumerator ChestCoroutine()
+    {
         canEscape = false;
+        yield return new WaitForSeconds(escapeTimer);
+        canEscape = true;
+
     }
     private void Update()
     {
-        if(IsHidden && Input.GetButtonDown("Interact"))
+        if(IsHidden && Input.GetButtonDown("Interact") && canEscape)
         {
             StopHiding();
         }
