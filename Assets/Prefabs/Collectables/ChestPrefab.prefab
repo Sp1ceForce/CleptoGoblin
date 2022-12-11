@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677720415408396961}
-  m_LocalRotation: {x: 0.013089582, y: -0, z: -0, w: 0.99991435}
+  m_LocalRotation: {x: 0.013089596, y: 0, z: 0, w: 0.99991435}
   m_LocalPosition: {x: 0, y: 0.48359656, z: -0.37561798}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -232,7 +232,7 @@ PrefabInstance:
     - target: {fileID: 361744893132439912, guid: 4e5a10741deba054d9ade1d4bb1b594b,
         type: 3}
       propertyPath: m_Name
-      value: ChestPrefab
+      value: Chest
       objectReference: {fileID: 0}
     - target: {fileID: 361744893132439912, guid: 4e5a10741deba054d9ade1d4bb1b594b,
         type: 3}
@@ -299,6 +299,21 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.032322228
       objectReference: {fileID: 0}
+    - target: {fileID: 4470488280227306533, guid: 4e5a10741deba054d9ade1d4bb1b594b,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154804063013895980, guid: 4e5a10741deba054d9ade1d4bb1b594b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.861
+      objectReference: {fileID: 0}
+    - target: {fileID: 6154804063013895980, guid: 4e5a10741deba054d9ade1d4bb1b594b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.69
+      objectReference: {fileID: 0}
     - target: {fileID: 7183250658707265978, guid: 4e5a10741deba054d9ade1d4bb1b594b,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -346,3 +361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92c00c4f140120408371f554d96f3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lidTransform: {fileID: 0}
+  closedLidRotation: 1.5
+  openLidRotation: 0
