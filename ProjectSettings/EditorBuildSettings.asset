@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
     guid: f28fc3e4dbab9c145a378c72ff3c6064
   - enabled: 1
-    path: Assets/Scenes/TestM.unity
+    path: Assets/Scenes/TestM2.unity
     guid: f5b7289030bb89a41999b3a5ac20afaf
   - enabled: 1
     path: Assets/Scenes/LoseUIScene.unity
