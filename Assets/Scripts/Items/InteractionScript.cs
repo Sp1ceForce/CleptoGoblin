@@ -22,7 +22,7 @@ public class InteractionScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && bCanInteract)
+        if (Input.GetButtonDown("Interact") && bCanInteract)
         {
             OnInteraction?.Invoke();
         }
