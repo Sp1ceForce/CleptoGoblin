@@ -13,8 +13,8 @@ public class HookGrab : MonoBehaviour
         if (other == null) return;
         grabItem = other.gameObject;
         grabItem.transform.SetParent(this.gameObject.transform);
-        //Debug.Log(other.name);
-        this.transform.parent.gameObject.SendMessage("ReturnHook");
+        Debug.Log(other.name);
+        // this.transform.parent.gameObject.SendMessage("ReturnHook");
     }
     private void Update()
     {
