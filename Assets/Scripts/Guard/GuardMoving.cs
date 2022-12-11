@@ -8,7 +8,7 @@ public class GuardMoving : MonoBehaviour
     [SerializeField] List<GameObject> waypoints;
     [SerializeField] AudioSource Alram;
     int currentIndex = 0;
-
+    [SerializeField] float moveSpeedMultiplier = 1.5f;
     NavMeshAgent navAgent;
 
     GameObject playerRef;
@@ -32,6 +32,7 @@ public class GuardMoving : MonoBehaviour
         isLookingForPlayer = true;
         navAgent.isStopped = false;
         playerRef = playerObject;
+        navAgent.speed = navAgent.speed* moveSpeedMultiplier;
     }
 
     // Update is called once per frame
@@ -39,7 +40,11 @@ public class GuardMoving : MonoBehaviour
     {
         if (isLookingForPlayer)
         {
-
+            if (HideSystem.IsHidden)
+            {
+                OnPlayerHide();
+                return;
+            }
             navAgent.SetDestination(playerRef.transform.position);
         }
         else if (!navAgent.pathPending && !navAgent.isStopped)
@@ -54,6 +59,13 @@ public class GuardMoving : MonoBehaviour
                 }
             }
         }
+    }
+    void OnPlayerHide()
+    {
+        OnPlayerLost?.Invoke();
+        isLookingForPlayer = false;
+        navAgent.SetDestination(waypoints[currentIndex].transform.position);
+        navAgent.speed = navAgent.speed/moveSpeedMultiplier;
     }
     IEnumerator WaitRoutine()
     {
