@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class GuardMoving : MonoBehaviour
 {
     [SerializeField] List<GameObject> waypoints;
-    public System.Action OnPlayerLost;
+    [SerializeField] AudioSource Alram;
     int currentIndex = 0;
     [SerializeField] float moveSpeedMultiplier = 1.5f;
     NavMeshAgent navAgent;
@@ -20,10 +20,16 @@ public class GuardMoving : MonoBehaviour
         navAgent = GetComponent<NavMeshAgent>();
         GetComponent<GuardFOV>().OnPlayerDetected += OnPlayerDetected;
     }
-    
+
     void OnPlayerDetected(GameObject playerObject)
     {
-        isLookingForPlayer=true;
+        if (isLookingForPlayer == false)
+        {
+            Camera.main.SendMessage("Guard"); //Сделайте такую же, только с моментом, когда поиск кончился
+            Alram.Play();
+        }
+
+        isLookingForPlayer = true;
         navAgent.isStopped = false;
         playerRef = playerObject;
         navAgent.speed = navAgent.speed* moveSpeedMultiplier;

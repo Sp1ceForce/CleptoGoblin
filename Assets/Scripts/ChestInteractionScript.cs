@@ -14,8 +14,10 @@ public class ChestInteractionScript : BaseInteractableLogic
     [SerializeField] Transform lidTransform;
     [SerializeField] float closedLidRotation = 1.5f;
     [SerializeField] float openLidRotation = 0f;
+    [SerializeField] AudioSource openChest;
     public override void Use()
     {
+        openChest.Play();
         switch (chestState)
         {
             case ChestState.Locked:
@@ -35,7 +37,7 @@ public class ChestInteractionScript : BaseInteractableLogic
     void OpenChest()
     {
         var itemController = FindObjectOfType<PlayerItemsController>();
-       if (itemController.SpendKey())
+        if (itemController.SpendKey())
         {
             itemController.AddCoins(goldInside);
             chestState = ChestState.Empty;
