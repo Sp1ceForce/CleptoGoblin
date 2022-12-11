@@ -9,6 +9,7 @@ public class Hook : MonoBehaviour
     [SerializeField] private float hookJointSpring = 5;
     [SerializeField] private Camera mainCam;
     [SerializeField] private HookRender hookRender;
+    [SerializeField] private AudioSource HookThrow;
     private int layerMask;
     private SpringJoint hookJoint;
     private bool stagePrepare = false;
@@ -34,6 +35,7 @@ public class Hook : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            HookThrow.Play();
             gameObject.SendMessage("Freze", true);
 
             pl.isAiming = false;
