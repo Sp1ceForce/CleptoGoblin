@@ -24,7 +24,10 @@ public class GuardMoving : MonoBehaviour
     void OnPlayerDetected(GameObject playerObject)
     {
         if (isLookingForPlayer == false)
+        {
+            Camera.main.SendMessage("Guard"); //Сделайте такую же, только с моментом, когда поиск кончился
             Alram.Play();
+        }
 
         isLookingForPlayer = true;
         navAgent.isStopped = false;
