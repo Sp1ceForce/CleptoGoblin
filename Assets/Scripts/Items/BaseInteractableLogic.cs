@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(InteractionScript))]
-public abstract class BaseItemLogic : MonoBehaviour
+public abstract class BaseInteractableLogic : MonoBehaviour
 {
     public virtual void Start()
     {
