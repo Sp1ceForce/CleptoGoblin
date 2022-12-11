@@ -232,7 +232,7 @@ PrefabInstance:
     - target: {fileID: 361744893132439912, guid: 4e5a10741deba054d9ade1d4bb1b594b,
         type: 3}
       propertyPath: m_Name
-      value: Chest
+      value: ChestPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 361744893132439912, guid: 4e5a10741deba054d9ade1d4bb1b594b,
         type: 3}
@@ -350,7 +350,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7683468973151781584, guid: 44b41fd29c67492439c93346f4aeb6f7,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3400750179100830209, guid: 4e5a10741deba054d9ade1d4bb1b594b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4e5a10741deba054d9ade1d4bb1b594b, type: 3}
 --- !u!4 &72287130897928666 stripped
 Transform:
@@ -364,6 +365,30 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7111422033385654368}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &-7056860544089003788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7473149332106905864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf73ca1be172f8e42ba19fb1576aa416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2193422898703840188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7473149332106905864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf73ca1be172f8e42ba19fb1576aa416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8978117579007609546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,5 +403,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldInside: 550
   lidTransform: {fileID: 9181211750667606004}
-  closedLidRotation: 1.5
-  openLidRotation: 0
+  closedLidRotation: 0
+  openLidRotation: -110

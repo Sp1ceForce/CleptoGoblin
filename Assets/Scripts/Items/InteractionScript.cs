@@ -16,7 +16,7 @@ public class InteractionScript : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            bCanInteract = true;
+            bCanInteract = false;
         }
     }
 

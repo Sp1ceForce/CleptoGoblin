@@ -35,12 +35,12 @@ public class ChestInteractionScript : BaseInteractableLogic
     void OpenChest()
     {
         var itemController = FindObjectOfType<PlayerItemsController>();
-       /* if (itemController.SpendKey())
-        {*/
+       if (itemController.SpendKey())
+        {
             itemController.AddCoins(goldInside);
             chestState = ChestState.Empty;
             lidTransform.SetLocalPositionAndRotation(lidTransform.localPosition, Quaternion.Euler(openLidRotation, 0, 0));
-        //}
+        }
     }
     void ReleaseTheGoblin()
     {
@@ -51,8 +51,8 @@ public class ChestInteractionScript : BaseInteractableLogic
 
     void PutGoblinInside()
     {
-        HideSystem.Instance.Hide();
         chestState = ChestState.GoblinInside;
         lidTransform.SetLocalPositionAndRotation(lidTransform.localPosition, Quaternion.Euler(closedLidRotation, 0, 0));
+        HideSystem.Instance.Hide();
     }
 }
