@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class GuardMoving : MonoBehaviour
 {
     [SerializeField] List<GameObject> waypoints;
+    [SerializeField] AudioSource Alram;
     int currentIndex = 0;
 
     NavMeshAgent navAgent;
@@ -19,10 +20,13 @@ public class GuardMoving : MonoBehaviour
         navAgent = GetComponent<NavMeshAgent>();
         GetComponent<GuardFOV>().OnPlayerDetected += OnPlayerDetected;
     }
-    
+
     void OnPlayerDetected(GameObject playerObject)
     {
-        isLookingForPlayer=true;
+        if (isLookingForPlayer == false)
+            Alram.Play();
+
+        isLookingForPlayer = true;
         navAgent.isStopped = false;
         playerRef = playerObject;
     }
@@ -32,6 +36,7 @@ public class GuardMoving : MonoBehaviour
     {
         if (isLookingForPlayer)
         {
+
             navAgent.SetDestination(playerRef.transform.position);
         }
         else if (!navAgent.pathPending && !navAgent.isStopped)
