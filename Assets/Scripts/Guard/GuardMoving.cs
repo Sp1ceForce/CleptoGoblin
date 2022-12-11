@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class GuardMoving : MonoBehaviour
 {
+    public System.Action OnPlayerLost;
     [SerializeField] List<GameObject> waypoints;
     [SerializeField] AudioSource Alram;
     int currentIndex = 0;
