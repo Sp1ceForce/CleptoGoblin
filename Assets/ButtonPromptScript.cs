@@ -6,17 +6,19 @@ public class ButtonPromptScript : MonoBehaviour
 {
     [SerializeField] GameObject Prompt;
 
-    private void Start()
-    {
-        Prompt.SetActive(false);
-    }
     private void OnTriggerEnter(Collider other)
     {
-        Prompt.SetActive(true);
+        if(other.tag == "Player")
+        {
+            Prompt.SetActive(true);
+        }
+        
     }
     private void OnTriggerExit(Collider other)
     {
-        Prompt.SetActive(false);
-
+        if (other.tag == "Player")
+        {
+            Prompt.SetActive(false);
+        }
     }
 }
