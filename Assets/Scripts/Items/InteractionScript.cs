@@ -3,7 +3,31 @@ using UnityEngine;
 public class InteractionScript : MonoBehaviour
 {
     public System.Action OnInteraction;
-    private void OnTriggerStay(Collider other)
+
+    bool bCanInteract = false;
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            bCanInteract = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            bCanInteract = true;
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && bCanInteract)
+        {
+            OnInteraction?.Invoke();
+        }
+    }
+    /*private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
@@ -12,5 +36,5 @@ public class InteractionScript : MonoBehaviour
                 OnInteraction?.Invoke();    
             }
         }
-    }
+    }*/
 }

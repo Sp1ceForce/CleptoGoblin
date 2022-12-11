@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class CoinsPickupLogic : BaseInteractableLogic
 {
+    [SerializeField] int coinsInside = 50;
     public override void Use()
     {
-        throw new System.NotImplementedException();
+        FindObjectOfType<PlayerItemsController>().AddCoins(coinsInside);
+        Destroy(gameObject);
     }
 }

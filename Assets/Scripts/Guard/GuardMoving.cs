@@ -55,6 +55,7 @@ public class GuardMoving : MonoBehaviour
 
     private void SetNextDestination()
     {
+        if (waypoints.Count == 0) return;
         if (currentIndex + 1 >= waypoints.Count) currentIndex = 0;
         else currentIndex++;
         navAgent.isStopped = false;
