@@ -167,6 +167,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2479018608809255296, guid: b3fe3ca9ff697c547863c130f4e380ef,
+        type: 3}
+      propertyPath: distancePickUp
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2508948861274121591, guid: b3fe3ca9ff697c547863c130f4e380ef,
         type: 3}
       propertyPath: m_Layer
@@ -274,21 +279,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3fe3ca9ff697c547863c130f4e380ef, type: 3}
---- !u!1 &5824028823116569565 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2479018608618604904, guid: b3fe3ca9ff697c547863c130f4e380ef,
-    type: 3}
-  m_PrefabInstance: {fileID: 8265271974519132853}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1161449900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5824028823116569565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c88be35f44dc2bd40a5b9d2183f40030, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

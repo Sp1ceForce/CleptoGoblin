@@ -7,6 +7,8 @@ public class HideSystem : MonoBehaviour
     public static bool IsHidden { get; private set; }
     public static HideSystem Instance;
     GameObject playerRef;
+    [SerializeField] float escapeTimer;
+    bool canEscape = false;
     private void Start()
     {
         if(HideSystem.Instance == null)
@@ -17,7 +19,7 @@ public class HideSystem : MonoBehaviour
         {
             Debug.LogError("More than one instance of HideSystem!");
         }
-        playerRef = GameObject.FindGameObjectWithTag("Player");
+        playerRef = GameObject.FindObjectOfType<PlayerController>().gameObject;
     }
     public void Hide()
     {
@@ -26,8 +28,13 @@ public class HideSystem : MonoBehaviour
     }
     public void StopHiding()
     {
+        if (canEscape)
+        {
+
+        }
         IsHidden = false;
         playerRef.SetActive(true);
+        canEscape = false;
     }
     private void Update()
     {

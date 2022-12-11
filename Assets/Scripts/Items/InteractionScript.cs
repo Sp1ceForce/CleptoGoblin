@@ -16,13 +16,13 @@ public class InteractionScript : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            bCanInteract = true;
+            bCanInteract = false;
         }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && bCanInteract)
+        if (Input.GetButtonDown("Interact") && bCanInteract)
         {
             OnInteraction?.Invoke();
         }

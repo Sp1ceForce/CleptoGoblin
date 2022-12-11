@@ -8,5 +8,6 @@ public class KeyInteractionLogic : BaseInteractableLogic
     public override void Use()
     {
         FindObjectOfType<PlayerItemsController>().AddKey(keysInside);
+        Destroy(gameObject);
     }
 }

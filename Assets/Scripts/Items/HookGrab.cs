@@ -13,17 +13,19 @@ public class HookGrab : MonoBehaviour
         if (other == null) return;
         grabItem = other.gameObject;
         grabItem.transform.SetParent(this.gameObject.transform);
-        Debug.Log(other.name);
+        grabItem.GetComponent<ButtonPromptScript>().enabled = false;
+        //Debug.Log(other.name);
         // this.transform.parent.gameObject.SendMessage("ReturnHook");
     }
     private void Update()
     {
         if (grabItem != null)
         {
+
             if (Vector3.Distance(grabItem.transform.position, player.position) <= distancePickUp)
             {
                 grabItem.GetComponent<BaseInteractableLogic>().Use();
-               
+                Destroy(grabItem.gameObject);
             }
         }
     }
