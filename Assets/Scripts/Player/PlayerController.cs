@@ -72,7 +72,6 @@ public class PlayerController : MonoBehaviour
         if (value)
         {
             rb.constraints = RigidbodyConstraints.FreezePosition | ~RigidbodyConstraints.FreezeRotationY; ;
-
             isAiming = true;
         }
         else

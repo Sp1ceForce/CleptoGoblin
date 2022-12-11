@@ -14,7 +14,7 @@ public class HookGrab : MonoBehaviour
         grabItem = other.gameObject;
         grabItem.transform.SetParent(this.gameObject.transform);
         Debug.Log(other.name);
-        this.transform.parent.gameObject.SendMessage("ReturnHook");
+        // this.transform.parent.gameObject.SendMessage("ReturnHook");
     }
     private void Update()
     {
