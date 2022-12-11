@@ -453,11 +453,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -2784880707010396829, guid: c3d92ffdf45dc9c468fd7ab74740be3f,
-        type: 3}
-      propertyPath: m_Extents.y
-      value: 1.195
-      objectReference: {fileID: 0}
     - target: {fileID: 166850505987635192, guid: c3d92ffdf45dc9c468fd7ab74740be3f,
         type: 3}
       propertyPath: m_Mesh
@@ -466,7 +461,7 @@ PrefabInstance:
     - target: {fileID: 166850505987635192, guid: c3d92ffdf45dc9c468fd7ab74740be3f,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 55
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 166850505987635192, guid: c3d92ffdf45dc9c468fd7ab74740be3f,
         type: 3}
@@ -1808,6 +1803,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2040618252}
+    - target: {fileID: 7364743397024584097, guid: c3d92ffdf45dc9c468fd7ab74740be3f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8091265093841379129, guid: c3d92ffdf45dc9c468fd7ab74740be3f,
         type: 3}
       propertyPath: m_Name
@@ -1888,7 +1888,8 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[3]
       value: 
       objectReference: {fileID: 99058314}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: c3d92ffdf45dc9c468fd7ab74740be3f, type: 3}
 --- !u!1 &146325964 stripped
 GameObject:
@@ -5437,7 +5438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f73ee92111fef478b975f6b5b838b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  escapeTimer: 0
+  escapeTimer: 0.2
 --- !u!4 &1093105868
 Transform:
   m_ObjectHideFlags: 0
