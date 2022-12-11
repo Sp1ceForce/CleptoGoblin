@@ -38,13 +38,13 @@ public class PlayerController : MonoBehaviour
 
         Vector3 move = new Vector3(deltaX, 0, deltaZ).normalized * speed;
         //move = transform.TransformDirection(move);
-        /*rb.AddForce(move, ForceMode.Impulse);
+        rb.AddForce(move, ForceMode.Impulse);
 
         moveXZ.x = rb.velocity.x;
         moveXZ.y = rb.velocity.z;
         moveXZ = Vector2.ClampMagnitude(moveXZ, speed);
-        rb.velocity = new Vector3(moveXZ.x, rb.velocity.y, moveXZ.y);*/
-        rb.velocity = move;
+        rb.velocity = new Vector3(moveXZ.x, rb.velocity.y, moveXZ.y);
+        // rb.velocity = move;
         if (!(isAiming || (deltaX == 0 && deltaZ == 0)))
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(deltaX, 0, deltaZ)), 0.1f);
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     public void AnimatLogic()
     {
-        if (rb.velocity != Vector3.zero)
+        if (rb.velocity.x >= 0.01 || rb.velocity.z >= 0.01)
         {
             isRuning = true;
         }
