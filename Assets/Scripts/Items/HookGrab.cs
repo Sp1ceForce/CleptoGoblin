@@ -21,10 +21,11 @@ public class HookGrab : MonoBehaviour
     {
         if (grabItem != null)
         {
+
             if (Vector3.Distance(grabItem.transform.position, player.position) <= distancePickUp)
             {
                 grabItem.GetComponent<BaseInteractableLogic>().Use();
-                if(grabItem) Destroy(grabItem);
+                Destroy(grabItem.gameObject);
             }
         }
     }
