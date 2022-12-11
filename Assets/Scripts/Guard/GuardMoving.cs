@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class GuardMoving : MonoBehaviour
 {
     [SerializeField] List<GameObject> waypoints;
+    public System.Action OnPlayerLost;
     int currentIndex = 0;
 
     NavMeshAgent navAgent;
@@ -32,6 +33,11 @@ public class GuardMoving : MonoBehaviour
     {
         if (isLookingForPlayer)
         {
+            if (HideSystem.IsHidden)
+            {
+                OnPlayerHide();
+                return;
+            }
             navAgent.SetDestination(playerRef.transform.position);
         }
         else if (!navAgent.pathPending && !navAgent.isStopped)
@@ -46,6 +52,12 @@ public class GuardMoving : MonoBehaviour
                 }
             }
         }
+    }
+    void OnPlayerHide()
+    {
+        OnPlayerLost?.Invoke();
+        isLookingForPlayer = false;
+        navAgent.SetDestination(waypoints[currentIndex].transform.position);
     }
     IEnumerator WaitRoutine()
     {
