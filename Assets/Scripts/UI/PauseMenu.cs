@@ -10,14 +10,14 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
+    private void Start()
+    {
+        FindObjectOfType<DeathScript>().OnDeath +=OnDeath;
+    }
 
     void Update()
     {
         
-        if(Input.GetKeyUp(KeyCode.Backspace))  // if game is over --- CHANGE!
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -31,7 +31,10 @@ public class PauseMenu : MonoBehaviour
             }
         }    
     } 
-    
+    void OnDeath()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
     public void Resume()
     {
         pauseMenuUI.SetActive(false);

@@ -6,18 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class DeathScript : MonoBehaviour
 {
-    UnityEvent OnDeath;
+    public System.Action OnDeath;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             OnDeath?.Invoke();
-            Death();
         }
-    }
-
-    void Death()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
