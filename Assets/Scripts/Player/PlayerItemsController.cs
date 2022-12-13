@@ -7,11 +7,16 @@ public class PlayerItemsController : MonoBehaviour
     public System.Action OnItemsChange;
     public int Keys { get; private set; }
     public int Coins { get; private set; }  
+
+    void Start(){
+        DontDestroyOnLoad(gameObject); 
+    }
     public void AddKey(int keysToAdd)
     {
         Keys += keysToAdd;
         OnItemsChange?.Invoke();
     }
+    
     public void AddCoins(int coinsToAdd)
     {
         Coins += coinsToAdd;

@@ -12,9 +12,9 @@ public class Hook : MonoBehaviour
     [SerializeField] private AudioSource HookThrow;
     private int layerMask;
     private SpringJoint hookJoint;
-    private bool stagePrepare = false;
-    private bool stageHook = false;
-    private int i = 1;
+    //private bool stagePrepare = false;
+    //private bool stageHook = false;
+    //private int i = 1;
     private PlayerController pl;
     private void Start()
     {

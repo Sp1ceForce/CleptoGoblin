@@ -10,13 +10,15 @@ public class GuardAnimationController : MonoBehaviour
     Animator animator;
 
     bool isRunning = false;
+    bool isActive;
     void Start()
     {
         animator = GetComponent<Animator>();
         agent = GetComponentInParent<NavMeshAgent>();
         GetComponentInParent<GuardFOV>().OnPlayerDetected += OnPlayerDetected;
         GetComponentInParent<GuardMoving>().OnPlayerLost += OnPlayerLost;
-
+        isActive = agent.isActiveAndEnabled;
+        animator.SetBool("isMoving", true);
     }
 
     void OnPlayerDetected(GameObject player)
@@ -32,6 +34,8 @@ public class GuardAnimationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetBool("isMoving",!agent.isStopped);
+        if(isActive){
+            animator.SetBool("isMoving",!agent.isStopped);
+        }
     }
 }

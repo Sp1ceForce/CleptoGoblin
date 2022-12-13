@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rbModel;
     private Vector2 moveXZ;
     [SerializeField] private float speed = 1;
-    [SerializeField] private float speedRotate = 1;
+    //[SerializeField] private float speedRotate = 1;
 
     private Camera mainCam;
     public bool isAiming;
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         // rb.velocity = move;
         if (!(isAiming || (deltaX == 0 && deltaZ == 0)))
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(rb.velocity.x, 0, rb.velocity.z)), 0.1f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(deltaX, 0, deltaZ)), 0.1f);
         }
 
         if (isAiming)
